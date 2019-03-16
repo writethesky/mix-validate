@@ -139,6 +139,10 @@ class BaseValidator extends AbstractObject
             if ($this instanceof \Mix\Validate\FileValidator) {
                 return true;
             }
+            // 文件/图片验证器忽略该类型的验证
+            if ($this instanceof \mix\validators\FileValidator) {
+                return true;
+            }
             // 设置错误消息
             $defaultMessage = "{$this->attribute}不是标量类型.";
             $this->setError(__FUNCTION__, $defaultMessage);
